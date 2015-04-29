@@ -48,8 +48,14 @@ public class MainActivity extends ActionBarActivity {
             public void onResponse(Response response) throws IOException {
                 try {
                     // Check if the request is successful
+
+                    Log.v(TAG, response.body().string());
+
                     if (response.isSuccessful()) {
-                        Log.v(TAG, response.body().string());
+
+                    }
+                    else {
+                       alertUserAboutError();
                     }
                 } catch (IOException e) {
                     Log.e(TAG, "Exception caught: ", e);
@@ -58,6 +64,9 @@ public class MainActivity extends ActionBarActivity {
         });
 
         Log.d(TAG, "Main UI code is running!");
+    }
+
+    private void alertUserAboutError() {
     }
 
 }
