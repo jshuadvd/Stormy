@@ -16,6 +16,18 @@ public class AlertDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Context context = getActivity();
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(context));
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(context))
+                .setTitle("Opps! Sorry!")
+                .setMessage("There was an error. Please try again!")
+                .setPositiveButton("OK", null);
+
+        // Create Alert Dialog
+        AlertDialog dialog = builder.create();
+        return dialog;
+
+        // String Resources
+
     }
+
+
 }
