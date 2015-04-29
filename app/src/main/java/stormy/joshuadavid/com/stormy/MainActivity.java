@@ -36,6 +36,7 @@ public class MainActivity extends ActionBarActivity {
         Request request = new Request.Builder()
                 .url(forecastUrl)
                 .build();
+
         Call call = client.newCall(request);
         call.enqueue(new Callback() {
             @Override
