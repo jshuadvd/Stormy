@@ -71,7 +71,7 @@ public class MainActivity extends ActionBarActivity {
             });
         }
         else {
-            Toast.makeText(this, getString(R.string.network_unavailable), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.network_unavailable_message), Toast.LENGTH_LONG).show();
 
         }
         Log.d(TAG, "Main UI code is running!");
