@@ -1,5 +1,6 @@
 package stormy.joshuadavid.com.stormy;
 
+import android.app.FragmentManager;
 import android.nfc.Tag;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -67,6 +68,9 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void alertUserAboutError() {
+        // Using the AlertDialog Object I created in the AlertDialog Fragment Class
+        AlertDialogFragment dialog = new AlertDialogFragment();
+        dialog.show(getFragmentManager(), "error_dialog");
     }
 
 }
