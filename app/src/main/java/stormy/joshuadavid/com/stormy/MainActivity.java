@@ -8,6 +8,7 @@ import android.nfc.Tag;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
@@ -68,9 +69,11 @@ public class MainActivity extends ActionBarActivity {
                     }
                 }
             });
+        }
+        else {
+            Toast.makeText(this, getString(R.string.network_unavailable), Toast.LENGTH_LONG).show();
 
         }
-
         Log.d(TAG, "Main UI code is running!");
     }
 
