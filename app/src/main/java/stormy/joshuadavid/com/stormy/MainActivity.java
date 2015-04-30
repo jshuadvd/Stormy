@@ -1,6 +1,7 @@
 package stormy.joshuadavid.com.stormy;
 
 import android.app.FragmentManager;
+import android.net.ConnectivityManager;
 import android.nfc.Tag;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -30,41 +31,51 @@ public class MainActivity extends ActionBarActivity {
         String forecastUrl = "https://api.forecast.io/forecast/" + apiKey + "/" + latitude +  "," + longitude;
 
 
-        // Main client object
-        OkHttpClient client = new OkHttpClient();
+        if (isNetworkAvailable()) {
 
-        // Request for client to send to the server
-        Request request = new Request.Builder()
-                .url(forecastUrl)
-                .build();
 
-        Call call = client.newCall(request);
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Request request, IOException e) {
+            // Main client object
+            OkHttpClient client = new OkHttpClient();
 
-            }
+            // Request for client to send to the server
+            Request request = new Request.Builder()
+                    .url(forecastUrl)
+                    .build();
 
-            @Override
-            public void onResponse(Response response) throws IOException {
-                try {
-                    // Check if the request is successful
+            Call call = client.newCall(request);
+            call.enqueue(new Callback() {
+                @Override
+                public void onFailure(Request request, IOException e) {
 
-                    Log.v(TAG, response.body().string());
-
-                    if (response.isSuccessful()) {
-
-                    }
-                    else {
-                       alertUserAboutError();
-                    }
-                } catch (IOException e) {
-                    Log.e(TAG, "Exception caught: ", e);
                 }
-            }
-        });
+
+                @Override
+                public void onResponse(Response response) throws IOException {
+                    try {
+                        // Check if the request is successful
+
+                        Log.v(TAG, response.body().string());
+
+                        if (response.isSuccessful()) {
+
+                        } else {
+                            alertUserAboutError();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "Exception caught: ", e);
+                    }
+                }
+            });
+
+        }
 
         Log.d(TAG, "Main UI code is running!");
+    }
+
+    private boolean isNetworkAvailable() {
+
+        ConnectivityManager manager = getSystemService();
+
     }
 
     private void alertUserAboutError() {
