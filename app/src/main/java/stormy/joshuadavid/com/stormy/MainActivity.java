@@ -1,7 +1,9 @@
 package stormy.joshuadavid.com.stormy;
 
 import android.app.FragmentManager;
+import android.content.Context;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.nfc.Tag;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -74,7 +76,19 @@ public class MainActivity extends ActionBarActivity {
 
     private boolean isNetworkAvailable() {
 
-        ConnectivityManager manager = getSystemService();
+        ConnectivityManager manager = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        // Instantiate a Network Info Object
+        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+        boolean isAvailable = false;
+        if (networkInfo != null && networkInfo.isConnected()) {
+
+            isAvailable = true;
+
+        }
+
+        return isAvailable;
 
     }
 
