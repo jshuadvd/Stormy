@@ -12,6 +12,9 @@ public class CurrentWeather {
     private double mPrecipChance;
     private String mSummary;
 
+
+    // Getters and Setters
+
     public String getIcon() {
         return mIcon;
     }

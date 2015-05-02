@@ -23,6 +23,11 @@ public class MainActivity extends ActionBarActivity {
 
     // Defining the "TAG" to Log the exception
     public static final String TAG = MainActivity.class.getSimpleName();
+
+    // Declaring the new Data Model Object
+    private CurrentWeather mCurrentWeather;
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
