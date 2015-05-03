@@ -16,6 +16,9 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 
@@ -73,7 +76,11 @@ public class MainActivity extends ActionBarActivity {
                         } else {
                             alertUserAboutError();
                         }
-                    } catch (IOException e) {
+                    }
+                    catch (IOException e) {
+                        Log.e(TAG, "Exception caught: ", e);
+                    }
+                    catch (JSONException e) {
                         Log.e(TAG, "Exception caught: ", e);
                     }
                 }
@@ -84,6 +91,10 @@ public class MainActivity extends ActionBarActivity {
 
         }
         Log.d(TAG, "Main UI code is running!");
+    }
+
+    private CurrentWeather getCurrentDetails(String jsonData) throws JSONException{
+        JSONObject forecast = new JSONObject(jsonData);
     }
 
     private boolean isNetworkAvailable() {
