@@ -99,6 +99,8 @@ public class MainActivity extends ActionBarActivity {
         String timezone = forecast.getString("timezone");
         Log.i(TAG, "From JSON: " + timezone);
 
+        JSONObject currently = forecast.getJSONObject("currently");
+
         return new CurrentWeather();
     }
 
