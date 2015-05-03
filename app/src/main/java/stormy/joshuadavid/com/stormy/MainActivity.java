@@ -52,6 +52,7 @@ public class MainActivity extends ActionBarActivity {
 
             Call call = client.newCall(request);
             call.enqueue(new Callback() {
+
                 @Override
                 public void onFailure(Request request, IOException e) {
 
@@ -60,11 +61,14 @@ public class MainActivity extends ActionBarActivity {
                 @Override
                 public void onResponse(Response response) throws IOException {
                     try {
+
                         // Check if the request is successful
 
-                        Log.v(TAG, response.body().string());
+                        String jsonData = response.body().string();
+                        Log.v(TAG, jsonData);
 
                         if (response.isSuccessful()) {
+                            mCurrentWeather = getCurrentDetails(jsonData);
 
                         } else {
                             alertUserAboutError();
