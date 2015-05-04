@@ -101,6 +101,11 @@ public class MainActivity extends ActionBarActivity {
 
         JSONObject currently = forecast.getJSONObject("currently");
 
+        CurrentWeather currentWeather = new CurrentWeather();
+        currentWeather.setHumidity(currently.getDouble("humidity"));
+        
+        // Commit to Git when started again!
+
         return new CurrentWeather();
     }
 
