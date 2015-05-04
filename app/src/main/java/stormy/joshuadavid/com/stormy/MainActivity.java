@@ -105,10 +105,13 @@ public class MainActivity extends ActionBarActivity {
         currentWeather.setHumidity(currently.getDouble("humidity"));
         currentWeather.setTime(currently.getLong("time"));
         currentWeather.setIcon(currently.getString("icon"));
-        currentWeather.setPrecipChance(currently.getDouble("precibProbability"));
+        currentWeather.setPrecipChance(currently.getDouble("precipProbability"));
         currentWeather.setSummary(currently.getString("summary"));
         currentWeather.setTemperature(currently.getDouble("temperature"));
         currentWeather.setTimezone(timezone);
+
+        Log.d(TAG, currentWeather.getFormattedTime());
+
 
         return currentWeather;
     }
@@ -132,6 +135,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void alertUserAboutError() {
+
         // Using the AlertDialog Object I created in the AlertDialog Fragment Class
         AlertDialogFragment dialog = new AlertDialogFragment();
         dialog.show(getFragmentManager(), "error_dialog");
