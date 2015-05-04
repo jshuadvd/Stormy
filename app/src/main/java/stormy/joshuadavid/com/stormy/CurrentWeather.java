@@ -1,6 +1,7 @@
 package stormy.joshuadavid.com.stormy;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.TimeZone;
 
 /**
@@ -37,7 +38,11 @@ public class CurrentWeather {
     public String getFormattedTime() {
 
         SimpleDateFormat formatter = new SimpleDateFormat("h:mm a");
-        formatter.setTimeZone(TimeZone.getTimeZone());
+        formatter.setTimeZone(TimeZone.getTimeZone(getTimezone()));
+        Date dateTime = new Date(getTime() * 1000);
+        String timeString = formatter.format(dateTime);
+
+        return timeString;
     }
 
     public void setTime(long time) {
