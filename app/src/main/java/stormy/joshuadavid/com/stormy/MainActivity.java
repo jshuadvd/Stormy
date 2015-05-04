@@ -106,7 +106,7 @@ public class MainActivity extends ActionBarActivity {
         currentWeather.setTime(currently.getLong("time"));
         currentWeather.setIcon(currently.getString("icon"));
         currentWeather.setPrecipChance(currently.getDouble("precibProbability"));
-        currentWeather.setSummary(currently.get("summary"));
+        currentWeather.setSummary(currently.getString("summary"));
         currentWeather.setTemperature(currently.getDouble("temperature"));
 
         return currentWeather;
