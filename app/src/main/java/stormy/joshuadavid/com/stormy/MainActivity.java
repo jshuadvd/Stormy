@@ -103,10 +103,13 @@ public class MainActivity extends ActionBarActivity {
 
         CurrentWeather currentWeather = new CurrentWeather();
         currentWeather.setHumidity(currently.getDouble("humidity"));
-        
-        // Commit to Git when started again!
+        currentWeather.setTime(currently.getLong("time"));
+        currentWeather.setIcon(currently.getString("icon"));
+        currentWeather.setPrecipChance(currently.getDouble("precibProbability"));
+        currentWeather.setSummary(currently.get("summary"));
+        currentWeather.setTemperature(currently.getDouble("temperature"));
 
-        return new CurrentWeather();
+        return currentWeather;
     }
 
     private boolean isNetworkAvailable() {
