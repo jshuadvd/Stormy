@@ -84,4 +84,12 @@ public class CurrentWeather {
 
         mSummary = summary;
     }
+
+    public String getTimezone() {
+        return mTimezone;
+    }
+
+    public void setTimezone(String timezone) {
+        mTimezone = timezone;
+    }
 }
