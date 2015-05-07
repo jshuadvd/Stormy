@@ -85,6 +85,7 @@ public class MainActivity extends ActionBarActivity {
 
                         if (response.isSuccessful()) {
                             mCurrentWeather = getCurrentDetails(jsonData);
+                            updateDisplay();
 
                         } else {
                             alertUserAboutError();
@@ -104,6 +105,9 @@ public class MainActivity extends ActionBarActivity {
 
         }
         Log.d(TAG, "Main UI code is running!");
+    }
+
+    private void updateDisplay() {
     }
 
     private CurrentWeather getCurrentDetails(String jsonData) throws JSONException{
