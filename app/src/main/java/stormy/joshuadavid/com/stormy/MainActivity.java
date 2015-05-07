@@ -85,7 +85,17 @@ public class MainActivity extends ActionBarActivity {
 
                         if (response.isSuccessful()) {
                             mCurrentWeather = getCurrentDetails(jsonData);
-                            updateDisplay();
+
+                            // Added new method to update the display
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    updateDisplay();
+                                }
+                            });
+
+
 
                         } else {
                             alertUserAboutError();
@@ -108,6 +118,8 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void updateDisplay() {
+        // Set temperature
+        mTemperatureLabel.setText(mCurrentWeather.getTemperature() + "");
     }
 
     private CurrentWeather getCurrentDetails(String jsonData) throws JSONException{
