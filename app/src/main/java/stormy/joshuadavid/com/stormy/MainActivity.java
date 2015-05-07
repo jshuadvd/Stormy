@@ -30,6 +30,8 @@ public class MainActivity extends ActionBarActivity {
     // Declaring the new Data Model Object
     private CurrentWeather mCurrentWeather;
 
+    
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
