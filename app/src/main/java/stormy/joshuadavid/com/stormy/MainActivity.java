@@ -38,8 +38,8 @@ public class MainActivity extends ActionBarActivity {
 
     @InjectView(R.id.timeLabel) TextView mTimeLabel;
     @InjectView(R.id.temperatureLabel) TextView mTemperatureLabel;
-    @InjectView(R.id.humidityLabel) TextView mHumidityValue;
-    @InjectView(R.id.precipLabel) TextView mPrecipValue;
+    @InjectView(R.id.humidityValue) TextView mHumidityValue;
+    @InjectView(R.id.precipValue) TextView mPrecipValue;
     @InjectView(R.id.summaryLabel) TextView mSummaryLabel;
     @InjectView(R.id.iconImageView) ImageView mIconImageView;
 
