@@ -120,6 +120,9 @@ public class MainActivity extends ActionBarActivity {
     private void updateDisplay() {
         // Set temperature
         mTemperatureLabel.setText(mCurrentWeather.getTemperature() + "");
+        mTimeLabel.setText("At " + mCurrentWeather.getFormattedTime() + " it will be");
+        
+
     }
 
     private CurrentWeather getCurrentDetails(String jsonData) throws JSONException{
