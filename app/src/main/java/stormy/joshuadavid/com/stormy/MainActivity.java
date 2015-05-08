@@ -2,6 +2,7 @@ package stormy.joshuadavid.com.stormy;
 
 import android.app.FragmentManager;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.nfc.Tag;
@@ -124,6 +125,9 @@ public class MainActivity extends ActionBarActivity {
         mHumidityValue.setText(mCurrentWeather.getHumidity() + "");
         mPrecipValue.setText(mCurrentWeather.getPrecipChance() + "%");
         mSummaryLabel.setText(mCurrentWeather.getSummary() + "");
+
+        Drawable drawable = getResources().getDrawable(mCurrentWeather.getIconId());
+        mIconImageView.setImageDrawable(drawable);
 
 
     }
