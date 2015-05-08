@@ -123,6 +123,7 @@ public class MainActivity extends ActionBarActivity {
         mTimeLabel.setText("At " + mCurrentWeather.getFormattedTime() + " it will be");
         mHumidityValue.setText(mCurrentWeather.getHumidity() + "");
         mPrecipValue.setText(mCurrentWeather.getPrecipChance() + "%");
+        mSummaryLabel.setText(mCurrentWeather.getSummary() + "");
 
 
     }
