@@ -54,11 +54,17 @@ public class MainActivity extends ActionBarActivity {
         mRefreshImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                getForecast();
             }
         });
 
 
+        getForecast();
+
+        Log.d(TAG, "Main UI code is running!");
+    }
+
+    private void getForecast() {
         String apiKey = "d4582e37a190726ee8741a4f27a81e3c";
         double latitude = 37.8267;
         double longitude = -122.423;
@@ -66,7 +72,6 @@ public class MainActivity extends ActionBarActivity {
 
 
         if (isNetworkAvailable()) {
-
 
             // Main client object
             OkHttpClient client = new OkHttpClient();
@@ -105,8 +110,6 @@ public class MainActivity extends ActionBarActivity {
                                 }
                             });
 
-
-
                         } else {
                             alertUserAboutError();
                         }
@@ -124,7 +127,6 @@ public class MainActivity extends ActionBarActivity {
             Toast.makeText(this, getString(R.string.network_unavailable_message), Toast.LENGTH_LONG).show();
 
         }
-        Log.d(TAG, "Main UI code is running!");
     }
 
     private void updateDisplay() {
