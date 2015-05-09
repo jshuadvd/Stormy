@@ -93,11 +93,27 @@ public class MainActivity extends ActionBarActivity {
 
                 @Override
                 public void onFailure(Request request, IOException e) {
-
+                    // Call this method to update UI
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            toggleRefresh();
+                        }
+                    });
+                    alertUserAboutError();
                 }
 
                 @Override
                 public void onResponse(Response response) throws IOException {
+                    // Call this method to update UI
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            toggleRefresh();
+                        }
+                    });
+
+
                     try {
 
                         // Check if the request is successful
