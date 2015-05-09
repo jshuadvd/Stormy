@@ -51,23 +51,24 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
+        final double latitude = 37.8267;
+        final double longitude = -122.423;
+
         mRefreshImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getForecast();
+                getForecast(latitude, longitude);
             }
         });
 
 
-        getForecast();
+        getForecast(latitude, longitude);
 
         Log.d(TAG, "Main UI code is running!");
     }
 
-    private void getForecast() {
+    private void getForecast(double latitude, double longitude ) {
         String apiKey = "d4582e37a190726ee8741a4f27a81e3c";
-        double latitude = 37.8267;
-        double longitude = -122.423;
         String forecastUrl = "https://api.forecast.io/forecast/" + apiKey + "/" + latitude +  "," + longitude;
 
 
