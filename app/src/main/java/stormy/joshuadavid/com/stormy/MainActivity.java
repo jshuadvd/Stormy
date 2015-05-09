@@ -78,8 +78,7 @@ public class MainActivity extends ActionBarActivity {
 
         if (isNetworkAvailable()) {
 
-            mProgressBar.setVisibility(View.VISIBLE);
-            mRefreshImageView.setVisibility(View.INVISIBLE);
+            toggleRefresh();
 
             // Main client object
             OkHttpClient client = new OkHttpClient();
@@ -134,6 +133,22 @@ public class MainActivity extends ActionBarActivity {
         else {
             Toast.makeText(this, getString(R.string.network_unavailable_message), Toast.LENGTH_LONG).show();
 
+        }
+    }
+
+    private void toggleRefresh() {
+        // Check visibility of mProgressBar
+        if (mProgressBar.getVisibility() == View.INVISIBLE) {
+            // Show ProgressBar
+            mProgressBar.setVisibility(View.VISIBLE);
+            // Hide refreshImageView
+            mRefreshImageView.setVisibility(View.INVISIBLE);
+        }
+        // Progress bar not visible
+        else {
+            mProgressBar.setVisibility(View.INVISIBLE);
+            // Show refreshImageView
+            mRefreshImageView.setVisibility(View.VISIBLE);
         }
     }
 
