@@ -53,7 +53,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
-        mProgressBar
+        mProgressBar.setVisibility(View.INVISIBLE);
 
         final double latitude = 37.8267;
         final double longitude = -122.423;
@@ -77,6 +77,9 @@ public class MainActivity extends ActionBarActivity {
 
 
         if (isNetworkAvailable()) {
+
+            mProgressBar.setVisibility(View.VISIBLE);
+            mRefreshImageView.setVisibility(View.INVISIBLE);
 
             // Main client object
             OkHttpClient client = new OkHttpClient();
