@@ -1,10 +1,12 @@
-package stormy.joshuadavid.com.stormy;
+package stormy.joshuadavid.com.stormy.ui;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
+
+import stormy.joshuadavid.com.stormy.R;
 
 /**
  * Created by joshuadavid on 4/29/15.

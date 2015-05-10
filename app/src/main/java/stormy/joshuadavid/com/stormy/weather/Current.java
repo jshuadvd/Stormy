@@ -1,13 +1,15 @@
-package stormy.joshuadavid.com.stormy;
+package stormy.joshuadavid.com.stormy.weather;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+import stormy.joshuadavid.com.stormy.R;
+
 /**
  * Created by joshuadavid on 5/1/15.
  */
-public class CurrentWeather {
+public class Current {
 
     private String mIcon;
     private long mTime;

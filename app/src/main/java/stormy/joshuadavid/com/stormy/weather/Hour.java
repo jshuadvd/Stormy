@@ -1,18 +1,17 @@
-package stormy.joshuadavid.com.stormy;
+package stormy.joshuadavid.com.stormy.weather;
 
 /**
  * Created by joshuadavid on 5/9/15.
  */
-public class Day {
-
+public class Hour {
     private long mTime;
     private String mSummary;
-    private double mTemperatureMax;
+    private double mTemperature;
     private String mIcon;
     private String mTimezone;
 
-    // Getters & Setters
 
+    // Getters & Setters
     public long getTime() {
         return mTime;
     }
@@ -29,12 +28,12 @@ public class Day {
         mSummary = summary;
     }
 
-    public double getTemperatureMax() {
-        return mTemperatureMax;
+    public double getTemperature() {
+        return mTemperature;
     }
 
-    public void setTemperatureMax(double temperatureMax) {
-        mTemperatureMax = temperatureMax;
+    public void setTemperature(double temperature) {
+        mTemperature = temperature;
     }
 
     public String getIcon() {
