@@ -28,6 +28,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import stormy.joshuadavid.com.stormy.R;
 import stormy.joshuadavid.com.stormy.weather.Current;
+import stormy.joshuadavid.com.stormy.weather.Forecast;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -180,6 +181,12 @@ public class MainActivity extends ActionBarActivity {
         mIconImageView.setImageDrawable(drawable);
 
 
+    }
+
+    // Adding this to Fill up the Forecast details
+    private Forecast parseForcastDetails(String jsonData) {
+        Forecast forecast = new Forecast();
+        return forecast;
     }
 
     private Current getCurrentDetails(String jsonData) throws JSONException{
