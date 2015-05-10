@@ -37,7 +37,7 @@ public class MainActivity extends ActionBarActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
 
     // Declaring the new Data Model Object
-    private Current mCurrent;
+    private Forecast mForecast;
 
     @InjectView(R.id.timeLabel) TextView mTimeLabel;
     @InjectView(R.id.temperatureLabel) TextView mTemperatureLabel;
@@ -123,7 +123,7 @@ public class MainActivity extends ActionBarActivity {
                         Log.v(TAG, jsonData);
 
                         if (response.isSuccessful()) {
-                            mCurrent = getCurrentDetails(jsonData);
+                            mForecast = parseForcastDetails(jsonData);
 
                             // Added new method to update the display
                             runOnUiThread(new Runnable() {
@@ -171,25 +171,30 @@ public class MainActivity extends ActionBarActivity {
 
     private void updateDisplay() {
         // Set temperature
-        mTemperatureLabel.setText(mCurrent.getTemperature() + "");
-        mTimeLabel.setText("At " + mCurrent.getFormattedTime() + " it will be");
-        mHumidityValue.setText(mCurrent.getHumidity() + "");
-        mPrecipValue.setText(mCurrent.getPrecipChance() + "%");
-        mSummaryLabel.setText(mCurrent.getSummary() + "");
+        Current current = mForecast.getCurrent();
 
-        Drawable drawable = getResources().getDrawable(mCurrent.getIconId());
+        mTemperatureLabel.setText(current.getTemperature() + "");
+        mTimeLabel.setText("At " + current.getFormattedTime() + " it will be");
+        mHumidityValue.setText(current.getHumidity() + "");
+        mPrecipValue.setText(current.getPrecipChance() + "%");
+        mSummaryLabel.setText(current.getSummary() + "");
+
+        Drawable drawable = getResources().getDrawable(current.getIconId());
         mIconImageView.setImageDrawable(drawable);
 
 
     }
 
     // Adding this to Fill up the Forecast details
-    private Forecast parseForcastDetails(String jsonData) {
+    private Forecast parseForcastDetails(String jsonData) throws JSONException {
         Forecast forecast = new Forecast();
+
+        forecast.setCurrent(getCurrentDetails(jsonData));
+
         return forecast;
     }
 
-    private Current getCurrentDetails(String jsonData) throws JSONException{
+    private Current getCurrentDetails(String jsonData) throws JSONException {
         JSONObject forecast = new JSONObject(jsonData);
         // Access and add to log
         String timezone = forecast.getString("timezone");
