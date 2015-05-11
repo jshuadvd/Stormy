@@ -19,6 +19,7 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -202,9 +203,12 @@ public class MainActivity extends ActionBarActivity {
         JSONObject forecast = new JSONObject(jsonData);
         // Access and add to log
         String timezone = forecast.getString("timezone");
-        
+
         // Takes Forecast object at the root and gets the JSONObject named hourly
         JSONObject hourly = forecast.getJSONObject("hourly");
+        JSONArray data = hourly.getJSONArray("data");
+        // Creating new Hour Array
+        Hour[] hours = new Hour[data.length()];
 
     }
 
