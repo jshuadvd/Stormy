@@ -28,7 +28,9 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import stormy.joshuadavid.com.stormy.R;
 import stormy.joshuadavid.com.stormy.weather.Current;
+import stormy.joshuadavid.com.stormy.weather.Day;
 import stormy.joshuadavid.com.stormy.weather.Forecast;
+import stormy.joshuadavid.com.stormy.weather.Hour;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -195,6 +197,22 @@ public class MainActivity extends ActionBarActivity {
 
         return forecast;
     }
+
+    private Hour[] getHourlyForecast(String jsonData) throws JSONException {
+        JSONObject forecast = new JSONObject(jsonData);
+        // Access and add to log
+        String timezone = forecast.getString("timezone");
+        
+        // Takes Forecast object at the root and gets the JSONObject named hourly
+        JSONObject hourly = forecast.getJSONObject("hourly");
+
+    }
+
+    private Day[] getDailyForecast(String jsonData) {
+        return new Day[0];
+    }
+
+
 
     private Current getCurrentDetails(String jsonData) throws JSONException {
         JSONObject forecast = new JSONObject(jsonData);
