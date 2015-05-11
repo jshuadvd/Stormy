@@ -144,6 +144,7 @@ public class MainActivity extends ActionBarActivity {
                     catch (IOException e) {
                         Log.e(TAG, "Exception caught: ", e);
                     }
+
                     catch (JSONException e) {
                         Log.e(TAG, "Exception caught: ", e);
                     }
@@ -203,7 +204,6 @@ public class MainActivity extends ActionBarActivity {
         JSONObject forecast = new JSONObject(jsonData);
         // Access and add to log
         String timezone = forecast.getString("timezone");
-
         // Takes Forecast object at the root and gets the JSONObject named hourly
         JSONObject hourly = forecast.getJSONObject("hourly");
         JSONArray data = hourly.getJSONArray("data");
@@ -225,11 +225,32 @@ public class MainActivity extends ActionBarActivity {
         return hours;
     }
 
-    private Day[] getDailyForecast(String jsonData) {
-        return new Day[0];
+    private Day[] getDailyForecast(String jsonData) throws JSONException {
+        JSONObject forecast = new JSONObject(jsonData);
+        // Access and add to log
+        String timezone = forecast.getString("timezone");
+        JSONObject daily = forecast.getJSONObject("daily");
+        JSONArray data = daily.getJSONArray("data");
+
+        Day[] days = new Day[data.length()];
+
+        for (int i = 0; i < data.length(); i++) {
+            JSONObject jsonDay = data.getJSONObject(i);
+            Day day = new Day();
+
+            day.setSummary(jsonDay.getString("summary"));
+            day.setIcon(jsonDay.getString("icon"));
+            day.setTemperatureMax(jsonDay.getDouble("temperatureMax"));
+            day.setTime(jsonDay.getLong("time"));
+            day.setTimezone(timezone);
+
+            days[i] = day;
+        }
+
+        return days;
+
+
     }
-
-
 
     private Current getCurrentDetails(String jsonData) throws JSONException {
         JSONObject forecast = new JSONObject(jsonData);
