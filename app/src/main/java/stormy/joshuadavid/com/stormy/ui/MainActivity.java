@@ -223,6 +223,7 @@ public class MainActivity extends ActionBarActivity {
             hours[i] = hour;
         }
         return hours;
+
     }
 
     private Day[] getDailyForecast(String jsonData) throws JSONException {
