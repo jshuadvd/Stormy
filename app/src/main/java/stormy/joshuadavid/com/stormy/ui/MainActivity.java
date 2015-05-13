@@ -1,6 +1,7 @@
 package stormy.joshuadavid.com.stormy.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -27,6 +28,7 @@ import java.io.IOException;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 import stormy.joshuadavid.com.stormy.R;
 import stormy.joshuadavid.com.stormy.weather.Current;
 import stormy.joshuadavid.com.stormy.weather.Day;
@@ -50,6 +52,7 @@ public class MainActivity extends ActionBarActivity {
     @InjectView(R.id.iconImageView) ImageView mIconImageView;
     @InjectView(R.id.refreshImageView) ImageView mRefreshImageView;
     @InjectView(R.id.progressBar) ProgressBar mProgressBar;
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -299,6 +302,13 @@ public class MainActivity extends ActionBarActivity {
         // Using the AlertDialog Object I created in the AlertDialog Fragment Class
         AlertDialogFragment dialog = new AlertDialogFragment();
         dialog.show(getFragmentManager(), "error_dialog");
+    }
+
+    // This sets the Daily Button to be clickable to go to the DailyForecastActivity
+    @OnClick(R.id.dailyButton)
+    public void startDailyActivity(View view) {
+        Intent intent = new Intent(this, DailyForecastActivity.class);
+        startActivity(intent);
     }
 
 }
