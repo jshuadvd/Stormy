@@ -1,5 +1,6 @@
 package stormy.joshuadavid.com.stormy.ui;
 
+import android.app.ListActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,7 +8,7 @@ import android.view.MenuItem;
 
 import stormy.joshuadavid.com.stormy.R;
 
-public class DailyForecastActivity extends ActionBarActivity {
+public class DailyForecastActivity extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
