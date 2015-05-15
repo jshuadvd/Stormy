@@ -3,7 +3,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:background="#ffaa00">
+                tools:background="#00baf3">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -23,4 +23,15 @@
         android:layout_toRightOf="@+id/circleImageView"
         android:layout_toEndOf="@+id/circleImageView"
         android:src="@mipmap/clear_day"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dayNameLabel"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/IconImageView"
+        android:layout_toEndOf="@+id/IconImageView"
+        android:textColor="#ffffffff"
+        android:textSize="20sp"
+        tools:text="Wednesday"/>
 </RelativeLayout>
