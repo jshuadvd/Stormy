@@ -1,5 +1,7 @@
 package stormy.joshuadavid.com.stormy.weather;
 
+import stormy.joshuadavid.com.stormy.R;
+
 /**
  * Created by joshuadavid on 5/9/15.
  */

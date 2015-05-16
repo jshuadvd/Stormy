@@ -33,8 +33,9 @@ public class Day {
         mSummary = summary;
     }
 
-    public double getTemperatureMax() {
-        return mTemperatureMax;
+    public int getTemperatureMax() {
+
+        return (int)Math.round(mTemperatureMax);
     }
 
     public void setTemperatureMax(double temperatureMax) {
