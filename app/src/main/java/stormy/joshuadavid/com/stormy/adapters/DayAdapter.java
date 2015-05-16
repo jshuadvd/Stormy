@@ -1,14 +1,14 @@
 package stormy.joshuadavid.com.stormy.adapters;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
+import stormy.joshuadavid.com.stormy.R;
 import stormy.joshuadavid.com.stormy.weather.Day;
 
 /**
@@ -45,12 +45,31 @@ public class DayAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
+
+        if (convertView == null)
+        {
+            // brand new and need to create everything
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.daily_list_item, null);
+            // initialize the Holder variable
+            holder = new ViewHolder();
+            holder.iconImageView = (ImageView) convertView.findViewById(R.id.iconImageView);
+            holder.temperatureLabel = (TextView) convertView.findViewById(R.id.temperatureLabel);
+            holder.dayLabel = (TextView) convertView.findViewById(R.id.dayNameLabel);
+
+            convertView.setTag(holder);
+        }
+
+        else
+        {
+            holder  = (ViewHolder) convertView.getTag();
+        }
+
         return null;
     }
 
     private static class ViewHolder {
         ImageView iconImageView;
-        TextView tempeeratureLabel;
+        TextView temperatureLabel;
         TextView dayLabel;
     }
 }
