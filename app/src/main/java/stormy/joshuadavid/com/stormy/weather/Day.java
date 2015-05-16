@@ -1,5 +1,9 @@
 package stormy.joshuadavid.com.stormy.weather;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 /**
  * Created by joshuadavid on 5/9/15.
  */
@@ -57,4 +61,13 @@ public class Day {
 
         return Forecast.getIconId(mIcon);
     }
+
+    public String getDayOfTheWeek() {
+
+        SimpleDateFormat formatter = new SimpleDateFormat("EEEE");
+        formatter.setTimeZone(TimeZone.getTimeZone(mTimezone));
+        Date dateTime = new Date(mTime * 1000);
+        return formatter.format(dateTime);
+    }
+
 }
