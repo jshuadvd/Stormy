@@ -81,6 +81,7 @@ public class DayAdapter extends BaseAdapter {
         return convertView;
     }
 
+    //
     private static class ViewHolder {
         ImageView iconImageView;
         TextView temperatureLabel;
