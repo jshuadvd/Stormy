@@ -22,7 +22,7 @@ public class DailyForecastActivity extends ListActivity {
         setContentView(R.layout.activity_daily_forecast);
 
         Intent intent = getIntent();
-        mDays = intent.getParcelableArrayExtra(MainActivity.DAILY_FORECAST);
+        mDays = (Day[]) intent.getParcelableArrayExtra(MainActivity.DAILY_FORECAST);
 
         DayAdapter adapter = new DayAdapter(this, mDays);
     }

@@ -10,7 +10,7 @@ import java.util.TimeZone;
 /**
  * Created by joshuadavid on 5/9/15.
  */
-public class Day implements Parcelable{
+public class Day implements Parcelable {
 
     private long mTime;
     private String mSummary;
@@ -81,6 +81,18 @@ public class Day implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(mTime);
+        dest.writeString(mSummary);
+        dest.writeDouble(mTemperatureMax);
+        dest.writeString(mIcon);
+        dest.writeString(mTimezone);
+    }
 
+    private Day(Parcel in) {
+        mTime = in.readLong();
+        mSummary = in.readString();
+        mTemperatureMax = in.readDouble();
+        mIcon = in.readString();
+        mTimezone = in.readString();
     }
 }
