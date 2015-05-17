@@ -95,4 +95,17 @@ public class Day implements Parcelable {
         mIcon = in.readString();
         mTimezone = in.readString();
     }
+
+    // Adding the Creator
+    public static final Creator<Day> CREATOR = new Creator<Day>() {
+        @Override
+        public Day createFromParcel(Parcel source) {
+            return new Day(source);
+        }
+
+        @Override
+        public Day[] newArray(int size) {
+            return new Day[size];
+        }
+    };
 }
