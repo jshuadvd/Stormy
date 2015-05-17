@@ -41,6 +41,8 @@ public class MainActivity extends ActionBarActivity {
     // Defining the "TAG" to Log the exception
     public static final String TAG = MainActivity.class.getSimpleName();
 
+    public static final String DAILY_FORECAST = "DAILY_FORECAST";
+
     // Declaring the new Data Model Object
     private Forecast mForecast;
 
@@ -308,6 +310,8 @@ public class MainActivity extends ActionBarActivity {
     @OnClick(R.id.dailyButton)
     public void startDailyActivity(View view) {
         Intent intent = new Intent(this, DailyForecastActivity.class);
+        // Adding more data onto this Intent
+        intent.putExtra(DAILY_FORECAST, mForecast.getDailyForecast());
         startActivity(intent);
     }
 
