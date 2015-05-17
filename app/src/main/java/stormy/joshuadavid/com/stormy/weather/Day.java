@@ -1,5 +1,8 @@
 package stormy.joshuadavid.com.stormy.weather;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
@@ -7,7 +10,7 @@ import java.util.TimeZone;
 /**
  * Created by joshuadavid on 5/9/15.
  */
-public class Day {
+public class Day implements Parcelable{
 
     private long mTime;
     private String mSummary;
@@ -71,4 +74,13 @@ public class Day {
         return formatter.format(dateTime);
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+    }
 }
