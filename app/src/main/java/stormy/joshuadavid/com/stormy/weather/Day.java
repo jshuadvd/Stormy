@@ -96,6 +96,8 @@ public class Day implements Parcelable {
         mTimezone = in.readString();
     }
 
+    public Day() {}
+
     // Adding the Creator
     public static final Creator<Day> CREATOR = new Creator<Day>() {
         @Override
