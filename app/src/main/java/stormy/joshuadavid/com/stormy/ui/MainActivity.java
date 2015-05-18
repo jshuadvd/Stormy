@@ -64,8 +64,10 @@ public class MainActivity extends ActionBarActivity {
 
         mProgressBar.setVisibility(View.INVISIBLE);
 
-        final double latitude = 37.8267;
-        final double longitude = -122.423;
+        // final double latitude = 37.8267;
+        // final double longitude = -122.423;
+        final double latitude = 34.0731;
+        final double longitude = 118.3994;
 
         mRefreshImageView.setOnClickListener(new View.OnClickListener() {
             @Override
