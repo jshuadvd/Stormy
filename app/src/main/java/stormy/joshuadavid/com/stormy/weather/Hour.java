@@ -83,5 +83,16 @@ public class Hour implements Parcelable {
         mTimezone = in.readString();
     }
 
+    public static final Creator<Hour> CREATOR = new Creator<Hour>() {
+        @Override
+        public Hour createFromParcel(Parcel source) {
+            return new Hour(source);
+        }
+
+        @Override
+        public Hour[] newArray(int size) {
+            return new Hour[size];
+        }
+    };
 
 }
