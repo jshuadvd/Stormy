@@ -66,6 +66,21 @@ public class Hour implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
 
+        dest.writeLong(mTime);
+        dest.writeDouble(mTemperature);
+        dest.writeString(mSummary);
+        dest.writeString(mIcon);
+        dest.writeString(mTimezone);
+
+    }
+
+    private Hour (Parcel in ) {
+
+        mTime = in.readLong();
+        mTemperature = in.readDouble();
+        mSummary = in.readString();
+        mIcon = in.readString();
+        mTimezone = in.readString();
     }
 
 
