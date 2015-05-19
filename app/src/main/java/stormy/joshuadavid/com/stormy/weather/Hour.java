@@ -1,14 +1,20 @@
 package stormy.joshuadavid.com.stormy.weather;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by joshuadavid on 5/9/15.
  */
-public class Hour {
+
+public class Hour implements Parcelable {
     private long mTime;
     private String mSummary;
     private double mTemperature;
     private String mIcon;
     private String mTimezone;
+
+    public Hour() { }
 
 
     // Getters & Setters
@@ -51,4 +57,16 @@ public class Hour {
     public void setTimezone(String timezone) {
         mTimezone = timezone;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+    }
+
+
 }
