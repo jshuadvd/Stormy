@@ -14,6 +14,13 @@ import stormy.joshuadavid.com.stormy.weather.Hour;
  */
 public class HourAdapter extends RecyclerView.Adapter {
 
+    private Hour[] mHours;
+
+    public HourAdapter(Hour[] hours) {
+
+        mHours = hours;
+    }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return null;
