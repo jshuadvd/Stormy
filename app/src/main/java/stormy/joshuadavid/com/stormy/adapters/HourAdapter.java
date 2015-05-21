@@ -29,7 +29,7 @@ public class HourAdapter extends RecyclerView.Adapter {
         return 0;
     }
 
-    public class HourViewHolder extends RecyclerView.ViewHolder<HourViewHolder> {
+    public class HourViewHolder extends RecyclerView.ViewHolder /*<HourViewHolder> */ {
 
         public TextView mTimeLabel;
         public TextView mSummaryLabel;
@@ -39,16 +39,16 @@ public class HourAdapter extends RecyclerView.Adapter {
         public HourViewHolder(View itemView) {
             super(itemView);
 
-            mTimeLabel (TextView) itemView.findViewById(R.id.timeLabel);
-            mSummaryLabel (TextView) itemView.findViewById(R.id.summaryLabel);
-            mTemperatureLabel (TextView) itemView.findViewById(R.id.temperatureLabel);
-            mIconImageView (ImageView) itemView.findViewById((R.id.iconImageView));
+            mTimeLabel = (TextView) itemView.findViewById(R.id.timeLabel);
+            mSummaryLabel = (TextView) itemView.findViewById(R.id.summaryLabel);
+            mTemperatureLabel = (TextView) itemView.findViewById(R.id.temperatureLabel);
+            mIconImageView = (ImageView) itemView.findViewById(R.id.iconImageView);
         }
 
         public void bindHour(Hour hour) {
             mTimeLabel.setText(hour.getHour());
             mSummaryLabel.setText(hour.getSummary());
-            mTemperatureLabel.setText(hour.getTemperature() + "" );
+            mTemperatureLabel.setText(hour.getTemperature() + "");
             mIconImageView.setImageResource(hour.getIconId());
         }
     }
