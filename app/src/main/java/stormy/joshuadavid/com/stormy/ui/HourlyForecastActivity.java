@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Parcelable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,7 @@ import java.util.Arrays;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import stormy.joshuadavid.com.stormy.R;
+import stormy.joshuadavid.com.stormy.adapters.HourAdapter;
 import stormy.joshuadavid.com.stormy.weather.Hour;
 
 public class HourlyForecastActivity extends ActionBarActivity {
@@ -30,6 +32,14 @@ public class HourlyForecastActivity extends ActionBarActivity {
         Intent intent = getIntent();
         Parcelable[] parcelables = intent.getParcelableArrayExtra(MainActivity.HOURLY_FORECAST);
         mHours = Arrays.copyOf(parcelables, parcelables.length, Hour[].class);
+
+        HourAdapter adapter = new HourAdapter(mHours);
+        mRecyclerView.setAdapter(adapter);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(layoutManager);
+
+        mRecyclerView.setHasFixedSize(true);
 
     }
 
