@@ -7,7 +7,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.Arrays;
 
@@ -30,6 +32,13 @@ public class DailyForecastActivity extends ListActivity {
 
         DayAdapter adapter = new DayAdapter(this, mDays);
         setListAdapter(adapter);
+
     }
 
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+
+        String message;
+    }
 }
