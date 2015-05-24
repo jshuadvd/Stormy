@@ -74,7 +74,7 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
         public void onClick(View v) {
             String time = mTimeLabel.getText().toString();
             String temperature = mTemperatureLabel.getText().toString();
-            String summary = mSummaryLabel.getText(toString());
+            String summary = mSummaryLabel.getText(toString();
 
             String message = String.format("At %s it will be %s and %s",
                     time,
