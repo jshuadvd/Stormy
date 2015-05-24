@@ -61,6 +61,8 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
             mSummaryLabel = (TextView) itemView.findViewById(R.id.summaryLabel);
             mTemperatureLabel = (TextView) itemView.findViewById(R.id.temperatureLabel);
             mIconImageView = (ImageView) itemView.findViewById(R.id.iconImageView);
+
+            itemView.setOnClickListener(this);
         }
 
         public void bindHour(Hour hour) {
@@ -74,7 +76,7 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
         public void onClick(View v) {
             String time = mTimeLabel.getText().toString();
             String temperature = mTemperatureLabel.getText().toString();
-            String summary = mSummaryLabel.getText(toString();
+            String summary = mSummaryLabel.getText().toString();
 
             String message = String.format("At %s it will be %s and %s",
                     time,
